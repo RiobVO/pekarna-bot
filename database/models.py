@@ -1,4 +1,4 @@
-from sqlalchemy import Column, Integer, String, DateTime, ForeignKey
+from sqlalchemy import Column, Integer, BigInteger, String, DateTime, ForeignKey
 from sqlalchemy.orm import DeclarativeBase, relationship
 from datetime import datetime
 
@@ -12,7 +12,7 @@ class Client(Base):
     __tablename__ = "clients"
 
     id = Column(Integer, primary_key=True)
-    telegram_id = Column(Integer, unique=True, nullable=False)
+    telegram_id = Column(BigInteger, unique=True, nullable=False)
     contact_name = Column(String, nullable=False)    # имя контактного лица
     organization = Column(String, nullable=False)    # название организации
     phone = Column(String, nullable=False)           # номер телефона

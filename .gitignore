@@ -17,5 +17,8 @@ __pycache__/
 # PyCharm
 .idea/
 
+# Claude Code
+.claude/
+
 # Логи
 *.log

@@ -7,7 +7,8 @@ from database.models import Base
 _database_url = os.getenv("DATABASE_URL")
 
 if _database_url:
-    # Railway даёт URL вида postgres://... — меняем на asyncpg
+    # Railway даёт URL вида postgres:// или postgresql:// — меняем на asyncpg
+    _database_url = _database_url.replace("postgresql://", "postgresql+asyncpg://", 1)
     _database_url = _database_url.replace("postgres://", "postgresql+asyncpg://", 1)
 else:
     _db_path = os.path.join(os.path.dirname(os.path.abspath(__file__)), "..", "bakery.db")
